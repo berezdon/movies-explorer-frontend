@@ -1,0 +1,60 @@
+.about-me__ul {
+  list-style-type: none;
+  margin: 0 0 15px 0;
+  padding: 0;
+}
+
+.about-me__li {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #E8E8E8;
+  margin-bottom: 20px;
+}
+
+.about-me__li:last-child {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-me__site-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 50px;
+  margin: 0;
+}
+
+.about-me__img-arrow {
+  width: 29px;
+}
+
+@media screen and (min-width: 577px) and (max-width: 785px) {
+  .about-me__ul {
+    margin: 0;
+  }
+
+  .about-me__site-title {
+    font-size: 28px;
+  }
+
+  .about-me__img-arrow {
+    width: 27px;
+  }
+}
+
+@media screen and (max-width: 577px) {
+  .about-me__ul {
+    margin: 0;
+  }
+
+  .about-me__site-title {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .about-me__img-arrow {
+    width: 18px;
+  }
+}

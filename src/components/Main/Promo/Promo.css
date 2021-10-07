@@ -1,0 +1,133 @@
+.promo {
+  display: flex;
+  flex-direction: column;
+  padding: calc(75px + 74px) 70px 75px;
+  background-color: #F3C1F8;
+}
+
+.promo__info {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-bottom: 84px;
+}
+
+.promo__logo {
+  width: 310px;
+  height: 304px;
+}
+
+.promo__info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo__header {
+  max-width: 640px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 1.16;
+  margin: 0 0 36px 0;
+}
+
+.promo__text {
+  max-width: 310px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  opacity: 0.5;
+  margin: 0;
+}
+
+.promo__button {
+  width: 131px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: #F3C1F8;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+}
+
+.promo__button:hover {
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 420px) and (max-width: 785px) {
+  .promo {
+    padding: calc(60px + 74px) 44px 60px;
+    align-items: center;
+  }
+
+  .promo__info {
+    flex-direction: column;
+    align-items: center;
+    margin: 0
+  }
+
+  .promo__logo {
+    margin: 80px 0 48px 0;
+  }
+
+  .promo__info-text {
+    align-items: center;
+  }
+
+  .promo__header {
+    max-width: 680px;
+    font-size: 40px;
+    line-height: 1.25;
+    text-align: center;
+    margin: 0 0 22px 0;
+  }
+
+  .promo__text {
+    max-width: 260px;
+    margin-bottom: 92px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .promo {
+    padding: calc(30px + 74px) 10px 30px;
+    align-items: center;
+  }
+
+  .promo__info {
+    flex-direction: column;
+    align-items: center;
+    margin: 0
+  }
+
+  .promo__logo {
+    width: 210px;
+    height: 204px;
+    margin: 40px 0 44px 0;
+  }
+
+  .promo__info-text {
+    align-items: center;
+  }
+
+  .promo__header {
+    width: 300px;
+    font-size: 30px;
+    line-height: 1.27;
+    text-align: center;
+    margin: 0 0 24px 0;
+  }
+
+  .promo__text {
+    width: 260px;
+    margin-bottom: 80px;
+    text-align: center;
+  }
+}

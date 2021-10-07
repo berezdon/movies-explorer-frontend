@@ -1,0 +1,8 @@
+.menu-avt {
+  display: none;
+  align-items: center;
+}
+
+.menu-avt_open {
+  display: flex;
+}

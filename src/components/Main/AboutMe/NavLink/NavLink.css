@@ -1,0 +1,27 @@
+.nav-link {
+  display: flex;
+}
+
+.nav-link__link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+  transition: opacity 0.5s ease;
+}
+
+.nav-link__link:hover {
+  opacity: 0.6;
+}
+
+.nav-link__link:first-child {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 320px) {
+  .nav-link__link:first-child {
+    margin-right: 26px;
+  }
+}
