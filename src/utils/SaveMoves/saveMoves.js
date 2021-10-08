@@ -1,7 +1,10 @@
 function saveMoves (moves) {
   const saveMoves = []
   moves.forEach((move) => {
-    if (move.isLike) saveMoves.push(move);
+    if (move.isLike) {
+      move.isSave = true;
+      saveMoves.push(move);
+    }
   })
   return saveMoves
 }

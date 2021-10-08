@@ -16,7 +16,7 @@ function SearchForm () {
           <img src={search} alt="Найти фильм" />
           <input onChange={handleChangeSearch} type="text" value={searchValue}
                  className="search-form__input" placeholder="Фильм"
-                 name="search-form__input" minLength="1" autoComplete="off" />
+                 name="search-form__input" minLength="1" autoComplete="off" required/>
           <div className="search-form__vertical-line">
             <button type="submit" className="search-form__button" aria-label="Найти">Найти</button>
           </div>

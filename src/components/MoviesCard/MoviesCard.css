@@ -15,6 +15,7 @@
 .movies-card__container {
   position: relative;
   padding: 16px;
+  margin-right: 10px;
 }
 
 .movies-card__name {
