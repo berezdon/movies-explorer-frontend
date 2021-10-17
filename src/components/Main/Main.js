@@ -6,6 +6,7 @@ import AboutMe from "./AboutMe/AboutMe";
 import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
 import React from "react";
+import NavTab from "./NavTab/NavTab";
 
 function Main ({
                  isMain,
@@ -23,6 +24,10 @@ function Main ({
         handleOpenNavigation={handleOpenNavigation}
       />
       <Promo />
+      <NavTab
+        isLogin={isLogin}
+        isMain={isMain}
+      />
       <AboutProject />
       <Techs />
       <AboutMe />

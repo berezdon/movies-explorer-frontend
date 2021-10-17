@@ -45,7 +45,6 @@
   border: none;
   border-bottom: 1px solid #E8E8E8;
   padding: 5px 0 10px;
-  margin-bottom: 24px;
 }
 
 .register__input_last {
@@ -62,12 +61,17 @@
 }
 
 .register__error {
+  visibility: hidden;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
   line-height: 12px;
+  padding: 6px 0;
   color: #FF4062;
-  margin: 0 0 134px 0;
+}
+
+.register__error_open {
+  visibility: visible;
 }
 
 .register__button {
@@ -76,12 +80,19 @@
   padding: 14px 0;
   border: none;
   border-radius: 3px;
-  cursor: pointer;
+  cursor: auto;
+  opacity: 0.6;
+  margin:  134px 0 0 0;
   transition: opacity 0.5s ease;
 }
 
 .register__button:hover {
   opacity: 0.6;
+}
+
+.register__button_active {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .register__footer {
@@ -121,8 +132,8 @@
     margin-bottom: 16px;
   }
 
-  .register__error {
-    margin: 0 0 222px 0;
+  .register__button {
+    margin: 222px 0 0  0;
   }
 
   .register__footer-text {

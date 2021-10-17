@@ -13,6 +13,10 @@ function MoviesCardList ({
                            errorMassage,
                            moviesRemains,
                            setMoviesRemains,
+                           onCardLike,
+                           onCardDislike,
+                           isSave,
+                           duration,
                          }) {
   useEffect(() => {
     window.addEventListener("resize", resizeThrottler, false);
@@ -50,6 +54,9 @@ function MoviesCardList ({
         <MoviesCard
           movie={movie}
           key={key}
+          onCardLike={onCardLike}
+          onCardDislike={onCardDislike}
+          isSave={isSave}
         />
         ))}
       <span className={`movies-card-list__error ${isOpenErrorMovies && 'movies-card-list__error_open'}`}>
@@ -57,7 +64,7 @@ function MoviesCardList ({
       </span>
       <button type="button" onClick={handleShowMoreMovies}
               className={`movies-card-list__button ${isOpenButtonMore && 'movies-card-list__button_open'}`}
-              aria-label="Найти">
+              aria-label="ещё">
         Ещё
       </button>
     </section>

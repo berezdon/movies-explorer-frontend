@@ -4,6 +4,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const ProtectedRoute = ({component: Component, ...props}) => {
   const value = React.useContext(CurrentUserContext);
+
   return (
     <Route>
       {

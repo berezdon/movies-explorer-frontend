@@ -1,6 +1,6 @@
-import React from 'react';
+import {useEffect, useState } from 'react';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, useHistory} from "react-router-dom";
 import './App.css';
 import PageNotFound from "../PageNotFound/PageNotFound";
 import Main from "../Main/Main";
@@ -11,19 +11,21 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import ErrorWindow from "../ErrorWindow/ErrorWindow";
+import MainApi from "../../utils/MainApi/MainApi"
 
 function App() {
-  const [isLogin, setIsLogin] = React.useState(false);
-  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
-  const [errors, setErrors] = React.useState('');
-  const [isOpenErrors, setIsOpenErrors] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState(
-    {name: "",
-      about: "",
-      avatar: "",
-      _id: "",
-      cohort: ""}
+  const [isLogin, setIsLogin] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [errors, setErrors] = useState('');
+  const [isOpenErrors, setIsOpenErrors] = useState(false);
+  const [currentUser, setCurrentUser] = useState(
+    {
+      name: "",
+      email: "",
+      _id: ""
+    }
   );
+  const [saveMovies, setSaveMovies] =  useState([]);
 
   function handleOpenNavigation() {
     setIsOpenMenu(true);
@@ -42,12 +44,47 @@ function App() {
     setIsOpenErrors(true);
   }
 
+  const history = useHistory();
+
+  function handleTokenCheck(){
+    MainApi.checkToken()
+      .then((res) => {
+        if (!res.ok) throw res;
+        else return res.json();
+      })
+      .then((user) => {
+        const url = localStorage.getItem('url')
+        setIsLogin(true);
+        setCurrentUser(user);
+        if (url) history.push(url);
+      })
+      .catch((err) => {
+        errorsSet(err);
+      });
+  }
+
+  function onCardDislike(movie) {
+    MainApi.postDeleteMovie(movie._id)
+      .then((res) => {
+        if (!res.ok) throw res;
+      })
+      .then(() => {
+        setSaveMovies((state) => state.filter((stateCard) => stateCard._id !== movie._id))
+      })
+      .catch((err) => {
+        setErrors(err);
+      })
+  }
+
   return (
     <div className="App">
       <CurrentUserContext.Provider value={{
         loggedIn: isLogin,
+        setIsLogin: setIsLogin,
         currentUser: currentUser,
+        setCurrentUser: setCurrentUser,
         setErrors: errorsSet,
+        handleTokenCheck: handleTokenCheck,
       }}>
         <Switch>
           <Route exact path='/'>
@@ -68,6 +105,9 @@ function App() {
             handleOpenNavigation={handleOpenNavigation}
             isOpenMenu={isOpenMenu}
             handleCloseNavigation={handleCloseNavigation}
+            saveMovies={saveMovies}
+            setSaveMovies={setSaveMovies}
+            onCardDislike={onCardDislike}
           />
           <ProtectedRoute
             exact
@@ -78,12 +118,16 @@ function App() {
             handleOpenNavigation={handleOpenNavigation}
             isOpenMenu={isOpenMenu}
             handleCloseNavigation={handleCloseNavigation}
+            saveMovies={saveMovies}
+            setSaveMovies={setSaveMovies}
+            onCardDislike={onCardDislike}
           />
           <ProtectedRoute
             exact
             path='/profile'
             component={Profile}
             isLogin={isLogin}
+            setIsLogin={setIsLogin}
             isMain={false}
             handleOpenNavigation={handleOpenNavigation}
             isOpenMenu={isOpenMenu}

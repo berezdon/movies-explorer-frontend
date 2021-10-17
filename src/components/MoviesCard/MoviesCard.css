@@ -39,8 +39,13 @@
 }
 
 .movies-card__like {
+  display: none;
   cursor: pointer;
   transition: opacity 0.5s ease;
+}
+
+.movies-card__like_open {
+  display: block;
 }
 
 .movies-card__like:hover {

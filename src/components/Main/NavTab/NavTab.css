@@ -1,10 +1,7 @@
 .menu {
-  display: none;
-  align-items: center;
-}
-
-.menu_open {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu__list {
@@ -15,13 +12,11 @@
 }
 
 .menu__list-item {
-  margin-right: 30px;
+  padding: 15px;
   cursor: pointer;
+  font-size: 18px;
+  line-height: 1.33;
   transition: opacity 0.5s ease;
-}
-
-.menu__list-item:last-child {
-  margin-right: 0;
 }
 
 .menu__list-item:hover {
@@ -49,14 +44,9 @@
   border-radius: 3px;
 }
 
-@media screen and (min-width: 420px) and (max-width: 785px) {
-  .menu {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 420px) {
-  .menu {
-    display: none;
+  .menu__list-item {
+    font-size: 16px;
+    padding: 10px;
   }
 }

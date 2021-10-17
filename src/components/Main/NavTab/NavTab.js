@@ -1,12 +1,9 @@
 import "./NavTab.css";
 import {Link} from "react-scroll";
 
-function NavTab ({
-                   isLogin,
-                   isMain,
-                 }) {
+function NavTab () {
   return (
-    <nav className={`menu ${isLogin && isMain && 'menu_open'}`}>
+    <nav className={'menu'}>
       <ul className="menu__list">
         <li className="menu__list-item">
           <Link to="aboutTheProject" spy={true} smooth={true} duration={500} >О проекте</Link>
