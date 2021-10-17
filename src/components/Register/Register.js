@@ -2,11 +2,12 @@ import "./Register.css";
 import logoHeader from "../../images/logo-header.svg";
 import React from "react";
 import {NavLink} from "react-router-dom";
+import * as auth from '../../utils/Auth/auth';
 
 function Register () {
-  const [name, setName] = React.useState('Максим');
-  const [email, setEmail] = React.useState('pochta@yandex.ru');
-  const [password, setPassword] = React.useState('12345678');
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   function handleChangeName (evt) {
     setName(evt.target.value);
@@ -22,6 +23,14 @@ function Register () {
 
   function handleSubmitRegistration(evt) {
     evt.preventDefault();
+    auth.register(name, password, email).then((res) => {
+      console.log(res);
+      if(res){
+
+      } else {
+
+      }
+    });
   }
 
   return (

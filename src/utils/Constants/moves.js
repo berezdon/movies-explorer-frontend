@@ -6,7 +6,7 @@ import run2 from "../../images/run2.jpg";
 import move from "../../images/move.jpg";
 import night from "../../images/night.jpg";
 
-const moves = [
+export const moves = [
   {
     cover: `${thirtyThree}`,
     name: "33 слова о дизайне",
@@ -50,5 +50,3 @@ const moves = [
     isLike: false
   }
 ]
-
-export default moves

@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && pscp -i pkey.ppk -r ./build/* berezdon@62.84.118.203:/home/berezdon/frontend"
   },
   "eslintConfig": {
     "extends": [

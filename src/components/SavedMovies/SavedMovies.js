@@ -5,7 +5,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from "../Footer/Footer";
 import saveMoves from "../../utils/SaveMoves/saveMoves";
-import moves from "../../utils/Constants/moves";
+import { moves } from "../../utils/Constants/moves";
 
 
 function SavedMovies ({

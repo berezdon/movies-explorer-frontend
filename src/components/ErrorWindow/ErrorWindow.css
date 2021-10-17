@@ -1,0 +1,43 @@
+.popup-error {
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: visibility 0.5s, opacity 0.5s linear;
+}
+
+.popup-error_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup-error__error {
+  width: 300px;
+  border: 2px solid red;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+.popup-error__text {
+  margin: 0;
+  padding: 10px;
+}
+
+@media screen and (max-width: 420px) {
+  .popup-error__error {
+    width: 200px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-right: 10px;
+  }
+}
