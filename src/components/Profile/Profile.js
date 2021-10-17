@@ -113,7 +113,7 @@ function Profile ({
           </div>
           <span className={`register__error ${!emailVal && 'register__error_open'}`}>{errorText.errorEmailForm}</span>
           <button onClick={handleEditProfile} type="button"
-                  className={`profile__button-edit profile__button-edit_close ${!isOpenForm && 'profile__button_open'}`}>
+                  className={`profile__button-edit profile__button-edit_close profile__button-edit_active ${!isOpenForm && 'profile__button_open'}`}>
             Редактировать
           </button>
           <button

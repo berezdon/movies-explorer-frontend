@@ -41,7 +41,8 @@ function SavedMovies ({
         if (!res.ok) throw res;
         else return res.json();
       })
-      .then((saveMovies) => {
+      .then((saveMoviesData) => {
+        const saveMovies = isSaveFunction(saveMoviesData);
         setSaveMovies(saveMovies);
         setSaveMoviesDisplay(saveMovies);
         if (saveMovies.length > 0) {
@@ -53,6 +54,14 @@ function SavedMovies ({
       })
       .finally(() => setIsOpenPreloader(false))
   },[])
+
+  function isSaveFunction(saveMovies){
+    let newArrayMovies = []
+    saveMovies.forEach((saveMovie) => {
+      if (value.currentUser._id === saveMovie.owner) newArrayMovies.push(saveMovie);
+    })
+    return newArrayMovies
+  }
 
   function errorMovies(massage, bool) {
     setErrorMassage(massage);

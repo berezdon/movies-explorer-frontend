@@ -27,6 +27,10 @@ function App() {
   );
   const [saveMovies, setSaveMovies] =  useState([]);
 
+  useEffect(() => {
+    handleTokenCheck();
+  }, [])
+
   function handleOpenNavigation() {
     setIsOpenMenu(true);
   }

@@ -94,7 +94,7 @@ function Movies ({
         setSaveMovies(saveMovies);
         return movies.map((movie) => {
           saveMovies.forEach((saveMovie) => {
-            if (saveMovie.movieId === movie.id) movie.isSave = true;
+            if (saveMovie.movieId === movie.id && value.currentUser._id === saveMovie.owner) movie.isSave = true;
           })
           return movie
         })
@@ -108,7 +108,7 @@ function Movies ({
   }
 
   function onCardLike(movie) {
-    if ( movie.isSave) {
+    if (movie.isSave) {
       movie.isSave = false;
       onCardDislike(saveMovie(movie));
     } else {

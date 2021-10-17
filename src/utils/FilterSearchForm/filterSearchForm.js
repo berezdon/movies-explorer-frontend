@@ -1,7 +1,6 @@
 function FilterSearchForm(movies, phrase, duration) {
   let newArray = []
 
-  console.log(duration);
   if (duration) {
     movies.forEach((movie) => {
       if (movie.nameRU) {
