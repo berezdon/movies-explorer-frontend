@@ -2,20 +2,38 @@ import "./MoviesCard.css";
 import like from "../../images/like.svg";
 import likeActive from "../../images/like-active.svg";
 import likeDelete from "../../images/like-delete.svg";
+import convertToHours from "../../utils/ConvertToHours/convertToHours";
 
 function MoviesCard ({
-                       move,
-                       key,
+                       movie,
+                       onCardLike,
+                       onCardDislike,
+                       isSave,
                      }) {
+  function handleCardLike(movie) {
+    onCardLike(movie);
+  }
+
+  function handleCardDislike(movie) {
+    onCardDislike(movie)
+  }
+
   return (
-    <section key={key} className="movies-card">
-      <img className="movies-card__cover" src={move.cover} alt="Обложка фильма"/>
+    <div className="movies-card">
+      <a href={movie.trailerLink} target="_blank" rel="noopener noreferrer">
+        <img className="movies-card__cover"
+             src={isSave ? movie.image : `https://api.nomoreparties.co${movie.image.url}`}
+             alt="Обложка фильма"/>
+      </a>
       <div className="movies-card__container">
-        <p className="movies-card__name">{move.name}</p>
-        <p className="movies-card__duration">{move.duration}</p>
-        <img className="movies-card__like" src={move.isLike ? move.isSave ? likeDelete : likeActive : like} alt="Лайк" />
+        <p className="movies-card__name">{movie.nameRU}</p>
+        <p className="movies-card__duration">{convertToHours(movie.duration)}</p>
+        <img onClick={() => handleCardLike(movie)}
+             className={`movies-card__like ${!isSave && 'movies-card__like_open'}`} src={movie.isSave ? likeActive : like} alt="Лайк" />
+        <img onClick={() => handleCardDislike(movie)}
+             className={`movies-card__like ${isSave && 'movies-card__like_open'}`} src={likeDelete} alt="Удалить" />
       </div>
-    </section>
+    </div>
   )
 }
 
